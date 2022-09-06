@@ -4,6 +4,11 @@ use clap::Parser;
 #[clap(author, version, about, long_about = None)]
 struct Args {}
 
-fn main() {
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
     let args = Args::parse();
+
+    mesh::start_tunnels().await?;
+
+    futures::future::pending().await
 }

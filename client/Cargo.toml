@@ -9,13 +9,18 @@ name = "mesh"
 path = "src/main.rs"
 
 [dependencies]
-boringtun = { git = "https://github.com/cloudflare/boringtun.git" }
+boringtun = { git = "https://github.com/cloudflare/boringtun.git"}
 clap = { version = "3.2", features = ["derive"] }
 anyhow = "1.0"
-tokio = "1.20"
+#tokio = "1.20"
+tokio = { version = "1.20", features = [ "full" ] }
 tokio-util = "0.7"
 futures = "0.3"
 bytes = "1.2"
 log = "0.4"
 env_logger = "0.9"
 flexi_logger = { version = "0.23", features = ["async", "use_chrono_for_offset"] }
+
+#metriki-core = "1.7.4" #"github.com/rcrowley/go-metrics"
+x25519-dalek = { version = "2.0.0-pre.1", features = ["reusable_secrets"] }
+smoltcp = { version = "0.8.0", default-features = false, features = ["std", "log", "medium-ip", "proto-ipv4", "proto-ipv6", "socket-udp", "socket-tcp"] }
